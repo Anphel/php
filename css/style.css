@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+background-color: black;
+}
+.container-fluid{
+    padding: 0;
+}
+#mainSlider .carousel-inner,#mainSlider .carousel-item, #mainSlider img{
+    height: 80vh;
+}
+#mainSlider .carousel-control-prev-icon, #mainSlider .carousel-control-next-icon{
+    background-color: #bb10a3;
+}
+.display-2 {
+    text-align: center;
+}
+#text-frame{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#text-frame .col-4, .col-3,.col-12{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border: solid 2px #bb10a3;
+}
+.navbar{
+    background-color: #0d0d0d;
+    opacity: 95%;
+}
+ .navbar a{
+     color: white;
+ }
+    .navbar img{
+    border-radius: 50rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+    .navbar .navbar-nav:first-child{
+        margin-left: 3rem;
+        align-items: baseline;
+    }
+    #social_nav{
+        margin-left: 800px;
+        display: flex;
+        justify-content: flex-end;
+        border-radius: 0;
+}
+    #social_nav img{
+        border-radius: 0;
+    }
+#About_content .row{
+margin: 0rem;
+}
+#About_content .col{
+    border-right: solid 2px #bb10a3;
+    padding: 0;
+}
+#About_content .col:last-child{
+    border-right: 0;
+    padding: 20px;
+}
+footer #text-frame{
+    margin:0;
+}
+footer #footer_content{
+    margin: 30px;
+    padding: 20px;
+    border: solid 2px #bb10a3;
+    background-color: #060708;
+}
+#footer_content .col{
+    border-right: solid 2px #bb10a3;
+}
+#footer_content .col, a{
+    color:#bb10a3;
+}
+#footer_content .col, a:hover{
+    color: #ff6eef;
+}
+#footer_content .col:last-child{
+    border-right: solid 0px white;
+}
+#social_footer .row{
+}
+#social_footer .col{
+    border: solid 0px black;
+}
+
+@media (max-width: 991px){
+    #social_nav{
+        margin-left: 0px;
+        margin-top: 20px ;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    #promo_content img{
+        min-width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+}
+@media (max-width: 1440px) {
+    #social_nav {
+        margin-left: 400px;
+    }
+    #About_content .col{
+        border-right: solid 2px #bb10a3;
+        padding: 0 ;
+    }
+}
