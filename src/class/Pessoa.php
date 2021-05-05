@@ -1,16 +1,19 @@
 <?php
 
 class Pessoa
+
 {
     protected string $nome;
-    protected string $cpf;
+    protected CPF $cpf;
     protected string $email;
+    protected string $senha;
 
-    public function __construct(string $nome, string $cpf, string $email)
+    public function __construct(string $nome, CPF $cpf, string $email , string $senha)
     {
         $this->nome = $nome;
         $this->cpf = $cpf;
-        $this->email = $email;;
+        $this->email = $email;
+        $this->senha = $senha;
     }
 
     public function getNome(): string
@@ -23,12 +26,11 @@ class Pessoa
         $this->nome = $nome;
     }
 
-    public function getCpf(): string
+    public function getCpf(): CPF
     {
         return $this->cpf;
     }
-
-    public function setCpf(string $cpf): void
+    public function setCpf(CPF $cpf): void
     {
         $this->cpf = $cpf;
     }
@@ -42,6 +44,13 @@ class Pessoa
     {
         $this->email = $email;
     }
+    public function getSenha(): string
+    {
+        return $this->senha;
+    }
 
-
+    public function setSenha(string $senha): void
+    {
+        $this->senha = $senha;
+    }
 }
