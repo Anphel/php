@@ -1,24 +1,16 @@
 <?php
 
 
-class Banco
+class User
 {
-    private mysqli $mysql;
-    public function __construct(){
-        $this->mysql = $mysql = new mysqli('localhost', 'root', '', 'test');
-        $mysql->set_charset('utf8');
-        if ($mysql == FALSE) {
-            echo 'Erro!';
-        }
-    }
-
-    public function insereDados(Pessoa $pessoa):void
+    public function createUser(Pessoa $pessoa):void
     {
+        $mysqli = ConectionCreator::createConnection();
         $nome = $pessoa->getNome();
         $cpf = $pessoa->getCpf();
         $email = $pessoa->getEmail();
         $senha = $pessoa->getSenha();
-        $insereDados = $this->mysql->prepare(
+        $insereDados = $mysqli->prepare(
             "
                 INSERT INTO `pessoas`(`Nome`, `CPF`, `Email`, `Senha`)
                 VALUES(?,?,?,?)");
@@ -28,23 +20,25 @@ class Banco
         }else echo "Erro, tente novamente!";
 
     }
-    public function lerDados()
+
+    public function getUserList()
     {
-        $result = $this->mysql->query("SELECT * FROM `pessoas`");
+        $mysqli = ConectionCreator::createConnection();
+        $result = $mysqli->query("SELECT * FROM `pessoas`");
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function deletarUsuario(string $nome)
+
+    public function deleteUser(string $nome)
     {
-        $deletaDados = $this->mysql->prepare(
+        $mysqli = ConectionCreator::createConnection();
+        $deletaDados = $mysqli->prepare(
             "
                 DELETE FROM `pessoas` WHERE Nome = ?");
         $deletaDados->bind_param('s',$nome);
-        if ($deletaDados->execute() == TRUE){
+        $deletaDados->execute();
+        if ( $deletaDados->affected_rows >= 1){
             echo "Usuario deletado com sucesso.";
         }else echo "Erro, tente novamente!";
 
     }
-
-
-
 }
