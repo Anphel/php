@@ -4,29 +4,27 @@ class Login
 {
     protected string $email;
     protected string $senha;
-    protected Banco $dados;
 
-    public function __construct(string $email, string $senha, Banco $dados)
+    public function __construct(string $email, string $senha,)
     {
         $this->email = $email;
         $this->senha = $senha;
-        $this->dados = $dados;
     }
+    public function validaLogin():bool{
+        $banco = new Banco();
+        $dados = $banco->lerDados();
 
-    public function validaLogin ():bool{
-        foreach ($this->dados->getDados() as $contas){
+        foreach ($dados as $contas){
 
-           if($contas->getemail() === $this->email){
+            if($contas['Email'] === $this->email){
 
-               if($contas->getSenha() === $this->senha){
+                if($contas['Senha'] === $this->senha){
 
-                   echo('Logado com sucesso!'.PHP_EOL);
-                   return true;
-               }
-           }
+                    echo('Logado com sucesso!'.PHP_EOL);
+                    return true;
+                }else echo 'Falha ao logar, tente novamente.';
+            }
         }
-
-        echo('Dados incorretos, tente novamente!'.PHP_EOL);
         return false;
     }
 }

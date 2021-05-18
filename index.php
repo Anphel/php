@@ -1,4 +1,15 @@
 <?php
+include 'src/config.php';
+require 'src/class/Banco.php';
+require 'src/class/CPF.php';
+require 'src/class/Pessoa.php';
+require 'src/class/Login.php';
+
+$banco = new Banco($mysql);
+var_dump($banco->lerDados());
+$pessoa = new Pessoa('Andr3',new CPF('100.731.139-87'),'andreph10@hotmail.com','123');
+$banco->insereDados($pessoa);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

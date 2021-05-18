@@ -21,4 +21,8 @@ class CPF
     {
         return $this->numero;
     }
+    public function __toString()
+    {
+        return $this->numero;
+    }
 }
