@@ -12,4 +12,3 @@ $user = new User();
 
 $login = new Login('jekika10@hotmail.com', '12345');
 $login->validaLogin();
-

@@ -1,7 +1,6 @@
 <?php
 
 class Pessoa
-
 {
     protected string $nome;
     protected CPF $cpf;
